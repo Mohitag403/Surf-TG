@@ -84,7 +84,7 @@ async def file_receive_handler(bot: Client, message: Message):
     if str(channel_id) in AUTH_CHANNEL:
         try:
             file = message.video or message.document
-            title = file.file_name or message.caption or file.file_id
+            title = message.caption
             title, _ = splitext(title)
             title = re.sub(r'[.,|_\',]', ' ', title)
             msg_id = message.id
